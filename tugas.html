@@ -9,21 +9,15 @@
 :root{
   --primary:#6366f1;
   --secondary:#06b6d4;
-  --accent:#f59e0b;
-
-  --bg-main:#0f172a;
-  --bg-soft:#1e293b;
+  --bg:#0f172a;
   --card:rgba(255,255,255,0.06);
-
   --text:#f1f5f9;
   --muted:#94a3b8;
-
   --border:rgba(255,255,255,0.08);
-  --shadow: 0 20px 50px rgba(0,0,0,.35);
   --radius:18px;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 
 body{
@@ -38,12 +32,11 @@ header{
   justify-content:space-between;
   align-items:center;
   padding:16px 40px;
-  position:sticky;
-  top:0;
   background:rgba(15,23,42,.85);
   backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
-  z-index:10;
+  position:sticky;
+  top:0;
 }
 
 .brand{
@@ -54,15 +47,11 @@ header{
   -webkit-text-fill-color:transparent;
 }
 
-nav{
-  display:flex;
-  gap:10px;
-}
-
 nav a{
   text-decoration:none;
   color:var(--muted);
-  padding:8px 16px;
+  margin-left:15px;
+  padding:8px 14px;
   border-radius:12px;
   transition:.3s;
 }
@@ -75,26 +64,14 @@ nav a:hover{
 /* SECTION */
 .section{
   padding:80px 40px;
-  animation:fadeUp .8s ease both;
-}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px)}
-  to{opacity:1;transform:translateY(0)}
 }
 
 /* HERO */
 .hero h1{
   font-size:48px;
-  font-weight:800;
   background:linear-gradient(90deg,var(--primary),var(--secondary));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-}
-
-.hero p{
-  margin-top:15px;
-  color:var(--muted);
 }
 
 /* CARD STYLE */
@@ -107,8 +84,8 @@ form,
   backdrop-filter:blur(20px);
   border:1px solid var(--border);
   border-radius:var(--radius);
-  box-shadow:var(--shadow);
   padding:20px;
+  margin-top:20px;
 }
 
 /* PROFILE */
@@ -117,7 +94,6 @@ form,
   gap:20px;
   align-items:center;
 }
-
 .profile-card img{
   width:120px;
   height:120px;
@@ -128,65 +104,39 @@ form,
 /* SKILLS */
 .skills-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:20px;
-}
-
-.skill-card{
-  transition:.3s;
-}
-.skill-card:hover{
-  transform:translateY(-6px);
 }
 
 /* PORTFOLIO */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:28px;
-}
-
-.card{
-  transition:.3s;
-}
-.card:hover{
-  transform:translateY(-8px) scale(1.02);
-}
-
-.card h3{
-  margin-bottom:10px;
-}
-
-.card p{
-  color:var(--muted);
-  font-size:14px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
 }
 
 /* BUTTON */
 .btn{
-  margin-top:15px;
-  padding:10px 16px;
+  padding:8px 14px;
   border:none;
   border-radius:12px;
   background:linear-gradient(135deg,var(--primary),var(--secondary));
   color:#fff;
-  font-weight:600;
   cursor:pointer;
   transition:.3s;
 }
 .btn:hover{opacity:.8}
 
 /* FORM */
-form input, form textarea{
+form input,form textarea{
   width:100%;
-  margin:10px 0;
   padding:10px;
+  margin:10px 0;
   border-radius:12px;
   border:1px solid var(--border);
   background:rgba(255,255,255,0.08);
   color:var(--text);
 }
-
 form textarea{height:100px;resize:none}
 
 /* TABLE */
@@ -195,16 +145,23 @@ table{
   border-collapse:collapse;
   margin-top:15px;
 }
-
 th,td{
   border:1px solid var(--border);
   padding:8px;
   font-size:13px;
 }
-
 th{
   background:linear-gradient(135deg,var(--primary),var(--secondary));
 }
+.delete-btn{
+  background:#ef4444;
+  border:none;
+  color:white;
+  padding:4px 8px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.delete-btn:hover{opacity:.8}
 
 /* FOOTER */
 footer{
@@ -222,7 +179,7 @@ footer{
 <body>
 
 <header>
-  <div class="brand">Azka.Mr Portfolio</div>
+  <div class="brand">Azka Mr Portfolio</div>
   <nav>
     <a href="#home">Home</a>
     <a href="#profile">Profile</a>
@@ -234,7 +191,7 @@ footer{
 
 <section id="home" class="section hero">
   <h1>Hi, Welcome 👋</h1>
-  <p>Saya mahasiswa Teknik Elektro yang sedang belajar Web Development.</p>
+  <p style="color:var(--muted)">Saya mahasiswa Teknik Elektro yang sedang belajar Web Development.</p>
 </section>
 
 <section id="profile" class="section">
@@ -260,23 +217,15 @@ footer{
 <section id="portfolio" class="section">
   <h2>Portfolio</h2>
   <div class="grid">
-    <div class="card">
-      <h3>Project Form</h3>
-      <p>Latihan membuat form dan tabel interaktif.</p>
-    </div>
-    <div class="card">
-      <h3>Landing Page</h3>
-      <p>Website responsive modern.</p>
-    </div>
-    <div class="card">
-      <h3>Message Table</h3>
-      <p>Data tersimpan menggunakan localStorage.</p>
-    </div>
+    <div class="card">Project Form</div>
+    <div class="card">Landing Page</div>
+    <div class="card">Message Table</div>
   </div>
 </section>
 
 <section id="message" class="section">
   <h2>Message Us</h2>
+
   <form id="form">
     <input type="text" id="nama" placeholder="Nama" required>
     <textarea id="pesan" placeholder="Pesan..." required></textarea>
@@ -284,11 +233,18 @@ footer{
   </form>
 
   <div class="table-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <h3>Daftar Pesan</h3>
+      <button class="btn" id="clearAll">Clear All</button>
+    </div>
+
     <table>
       <thead>
         <tr>
           <th>Nama</th>
           <th>Pesan</th>
+          <th>Tanggal</th>
+          <th>Hapus</th>
         </tr>
       </thead>
       <tbody id="tbody"></tbody>
@@ -301,21 +257,47 @@ footer{
 <script>
 const form=document.getElementById("form");
 const tbody=document.getElementById("tbody");
+const clearAll=document.getElementById("clearAll");
+const STORAGE_KEY="portfolio_messages_v3";
 
 function load(){
-  return JSON.parse(localStorage.getItem("data"))||[];
+  return JSON.parse(localStorage.getItem(STORAGE_KEY))||[];
 }
 
 function save(data){
-  localStorage.setItem("data",JSON.stringify(data));
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+}
+
+function now(){
+  return new Date().toLocaleString("id-ID",{
+    day:"2-digit",
+    month:"2-digit",
+    year:"numeric",
+    hour:"2-digit",
+    minute:"2-digit"
+  });
 }
 
 function render(){
   const data=load();
   tbody.innerHTML="";
-  data.forEach(item=>{
-    tbody.innerHTML+=`<tr><td>${item.nama}</td><td>${item.pesan}</td></tr>`;
+  data.forEach((item,index)=>{
+    tbody.innerHTML+=`
+      <tr>
+        <td>${item.nama}</td>
+        <td>${item.pesan}</td>
+        <td>${item.tanggal}</td>
+        <td><button class="delete-btn" onclick="hapus(${index})">X</button></td>
+      </tr>
+    `;
   });
+}
+
+function hapus(index){
+  const data=load();
+  data.splice(index,1);
+  save(data);
+  render();
 }
 
 form.addEventListener("submit",e=>{
@@ -324,10 +306,17 @@ form.addEventListener("submit",e=>{
   const pesan=document.getElementById("pesan").value;
 
   const data=load();
-  data.unshift({nama,pesan});
+  data.unshift({nama,pesan,tanggal:now()});
   save(data);
   render();
   form.reset();
+});
+
+clearAll.addEventListener("click",()=>{
+  if(confirm("Yakin hapus semua data?")){
+    localStorage.removeItem(STORAGE_KEY);
+    render();
+  }
 });
 
 render();
